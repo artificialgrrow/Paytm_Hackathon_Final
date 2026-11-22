@@ -1,7 +1,7 @@
 // API Client & Comprehensive Scenario Mirror for Paytm AI Hub
 // Backed by SQLite scenarios and LangGraph backend (http://localhost:8000)
 
-const BACKEND_URL = 'http://localhost:8000';
+const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000').replace(/\/+$/, '');
 
 export const SCENARIO_DATABASE = {
   merchant: {
