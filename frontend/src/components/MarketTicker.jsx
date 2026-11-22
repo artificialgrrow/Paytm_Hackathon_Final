@@ -22,7 +22,7 @@ export default function MarketTicker({ onSelectService }) {
       delta: '+0.04%',
       isUp: true,
       sub: 'Simulated 5G fulfillment',
-      icon: '📶'
+      icon: '5G'
     },
     {
       id: 'disputes',
@@ -32,7 +32,7 @@ export default function MarketTicker({ onSelectService }) {
       delta: '-34%',
       isUp: true,
       sub: 'Fast refund investigations',
-      icon: '🛡️'
+      icon: 'TAT'
     },
     {
       id: 'cashback',
@@ -42,7 +42,7 @@ export default function MarketTicker({ onSelectService }) {
       delta: '+14.2%',
       isUp: true,
       sub: 'Credited directly to wallet',
-      icon: '🎁'
+      icon: 'CASH'
     }
   ];
 

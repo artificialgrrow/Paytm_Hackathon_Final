@@ -1619,10 +1619,10 @@ class PaytmAgentOrchestrator {
         service: 'chat',
         language: lang,
         ai_message: lang === 'en' 
-          ? "Hello! I am Paytm ONE AI Commander. I can assist you across 2 core modes:\n\n⚡ **Action Mode**: Autonomous 1-click execution for Mobile Recharge, Flight & Bus Tickets, Electricity Bills, and Shopping Deals.\n🛡️ **Resolve Mode**: Autonomous 3-Way Reconciliation for stuck payments, failed UPI debits, and refund tracking with 24H SLA.\n\nWhich mode would you like to explore?"
+          ? "Hello! I am Paytm ONE AI Commander. I can assist you across 2 core modes:\n\n• **Action Mode**: Autonomous 1-click execution for Mobile Recharge, Flight & Bus Tickets, Electricity Bills, and Shopping Deals.\n• **Resolve Mode**: Autonomous 3-Way Reconciliation for stuck payments, failed UPI debits, and refund tracking with 24H SLA.\n\nWhich mode would you like to explore?"
           : (lang === 'mr' 
-            ? "नमस्कार! मी पेटीएम वन AI कमांडर आहे. मी तुम्हाला २ प्रमुख मोड्समध्ये मदत करू शकतो:\n\n⚡ **Action Mode**: मोबाईल रिचार्ज, बस/ट्रेन/फ्लाइट तिकीट, वीज बिल आणि शॉपिंग डील्स १-क्लिकमध्ये.\n🛡️ **Resolve Mode**: अडकलेले पैसे, अयशस्वी UPI पेमेंट आणि रिफंडचे २४ तासांत जलद निवारण.\n\nतुम्हाला काय करायचे आहे?"
-            : "नमस्ते! मैं पेटीएम वन (Paytm ONE) AI कमांडर हूँ। मैं आपकी 2 मुख्य मोड्स में मदद कर सकता हूँ:\n\n⚡ **Action Mode**: मोबाइल रिचार्ज, बस/ट्रेन/फ्लाइट टिकट बुकिंग, बिजली बिल और डील्स 1-क्लिक में करें।\n🛡️ **Resolve Mode**: अटके हुए पैसे, फेल यूपीआई पेमेंट और रिफंड का 24 घंटे में समाधान।\n\nआप कौन सा मोड देखना चाहते हैं?"),
+            ? "नमस्कार! मी पेटीएम वन AI कमांडर आहे. मी तुम्हाला २ प्रमुख मोड्समध्ये मदत करू शकतो:\n\n• **Action Mode**: मोबाईल रिचार्ज, बस/ट्रेन/फ्लाइट तिकीट, वीज बिल आणि शॉपिंग डील्स १-क्लिकमध्ये.\n• **Resolve Mode**: अडकलेले पैसे, अयशस्वी UPI पेमेंट आणि रिफंडचे २४ तासांत जलद निवारण.\n\nतुम्हाला काय करायचे आहे?"
+            : "नमस्ते! मैं पेटीएम वन (Paytm ONE) AI कमांडर हूँ। मैं आपकी 2 मुख्य मोड्स में मदद कर सकता हूँ:\n\n• **Action Mode**: मोबाइल रिचार्ज, बस/ट्रेन/फ्लाइट टिकट बुकिंग, बिजली बिल और डील्स 1-क्लिक में करें।\n• **Resolve Mode**: अटके हुए पैसे, फेल यूपीआई पेमेंट और रिफंड का 24 घंटे में समाधान।\n\nआप कौन सा मोड देखना चाहते हैं?"),
         suggested_replies: lang === 'en'
           ? ["Recharge Jio ₹299 ⚡", "Pune to Mumbai Flight ✈️", "Dispute Stuck Payment 🛡️", "Pay Electricity Bill 💡"]
           : (lang === 'mr'
@@ -1953,7 +1953,7 @@ class PaytmAgentOrchestrator {
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span class="text-xs font-bold text-[#002970]">Human Approval Required (UNWIND Security)</span>
+              <span class="text-xs font-bold text-[#002970]">Human Approval Required (Zero-Trust Security)</span>
             </div>
             <span class="text-[11px] text-slate-400">NPCI 256-bit Secure</span>
           </div>

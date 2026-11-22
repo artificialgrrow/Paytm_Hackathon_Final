@@ -3,6 +3,14 @@ Paytm AI Hub Master Multi-Agent Orchestrator:
 Coordinates Groq LLM, SerpApi Search, You.com Citations, Nexconn Real-Time Chat, and Sarvam AI Voice.
 Produces step-by-step thinking & action execution trace (Astra-style).
 """
+import os
+import sys
+
+# Ensure repository root is on sys.path
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
 import re
 from backend.agents.groq_agent import parse_query_with_groq
 from backend.agents.recharge_agent import find_matching_recharge_plan
@@ -164,9 +172,9 @@ def orchestrate_query(query: str, user_id: str = "paytm_user_01", language: str 
             "budget": explicit_price or 299,
             "data_daily": detected_data,
             "wants_netflix": wants_netflix,
-            "response_mr": "नमस्कार! मी पेटीएम वन AI कमांडर आहे. मी तुम्हाला २ प्रमुख मोड्समध्ये मदत करू शकतो:\n\n⚡ **Action Mode**: मोबाईल रिचार्ज, बस/ट्रेन/फ्लाइट तिकीट बुकिंग, वीज बिल आणि शॉपिंग डील्स १-क्लिकमध्ये करा.\n🛡️ **Resolve Mode**: अडकलेले पैसे, अयशस्वी UPI आणि रिफंडचे NPCI नियमांनुसार २४ तासांत जलद निवारण.\n\nतुम्हाला कोणत्या सेवेमध्ये मदत हवी आहे?",
-            "response_hi": "नमस्ते! मैं पेटीएम वन (Paytm ONE) AI कमांडर हूँ। मैं आपकी 2 मुख्य मोड्स में मदद कर सकता हूँ:\n\n⚡ **Action Mode**: मोबाइल रिचार्ज, बस/ट्रेन/फ्लाइट टिकट बुकिंग, बिजली बिल और शॉपिंग डील्स 1-क्लिक में करें।\n🛡️ **Resolve Mode**: अटके हुए पैसे, फेल यूपीआई पेमेंट और रिफंड का 24 घंटे में समाधान।\n\nआप कौन सा मोड देखना चाहते हैं?",
-            "response_en": "Hello! I am Paytm ONE AI Commander. I can assist you across 2 core modes:\n\n⚡ **Action Mode**: Autonomous 1-click execution for Mobile Recharge, Flight & Bus Tickets, Electricity Bills, and Shopping Deals.\n🛡️ **Resolve Mode**: Autonomous 3-Way Reconciliation for stuck payments, failed UPI debits, and refund tracking with 24H SLA.\n\nWhich mode would you like to explore?"
+            "response_mr": "नमस्कार! मी पेटीएम वन AI कमांडर आहे. मी तुम्हाला २ प्रमुख मोड्समध्ये मदत करू शकतो:\n\n• **Action Mode**: मोबाईल रिचार्ज, बस/ट्रेन/फ्लाइट तिकीट बुकिंग, वीज बिल आणि शॉपिंग डील्स १-क्लिकमध्ये करा.\n• **Resolve Mode**: अडकलेले पैसे, अयशस्वी UPI आणि रिफंडचे २४ तासांत जलद निवारण.\n\nतुम्हाला कोणत्या सेवेमध्ये मदत हवी आहे?",
+            "response_hi": "नमस्ते! मैं पेटीएम वन (Paytm ONE) AI कमांडर हूँ। मैं आपकी 2 मुख्य मोड्स में मदद कर सकता हूँ:\n\n• **Action Mode**: मोबाइल रिचार्ज, बस/ट्रेन/फ्लाइट टिकट बुकिंग, बिजली बिल और शॉपिंग डील्स 1-क्लिक में करें।\n• **Resolve Mode**: अटके हुए पैसे, फेल यूपीआई पेमेंट और रिफंड का 24 घंटे में समाधान।\n\nआप कौन सा मोड देखना चाहते हैं?",
+            "response_en": "Hello! I am Paytm ONE AI Commander. I can assist you across 2 core modes:\n\n• **Action Mode**: Autonomous 1-click execution for Mobile Recharge, Flight & Bus Tickets, Electricity Bills, and Shopping Deals.\n• **Resolve Mode**: Autonomous 3-Way Reconciliation for stuck payments, failed UPI debits, and refund tracking with 24H SLA.\n\nWhich mode would you like to explore?"
         }
     else:
         # Override with explicit values if found in user's prompt
@@ -452,16 +460,16 @@ def orchestrate_query(query: str, user_id: str = "paytm_user_01", language: str 
         })
 
         if lang == "mr":
-            ai_msg = "नमस्कार! मी पेटीएम वन (Paytm ONE) AI कमांडर आहे. मी तुम्हाला २ प्रमुख मोड्समध्ये मदत करू शकतो:\n\n⚡ **Action Mode**: मोबाईल रिचार्ज, बस/ट्रेन/फ्लाइट तिकीट, वीज बिल आणि शॉपिंग डील्स १-क्लिकमध्ये पूर्ण करा.\n🛡️ **Resolve Mode**: अडकलेले पैसे, अयशस्वी UPI पेमेंट आणि रिफंडचे NPCI नियमांनुसार २४ तासांत जलद निवारण.\n\nतुम्हाला कोणत्या मोडमध्ये मदत हवी आहे?"
+            ai_msg = "नमस्कार! मी पेटीएम वन (Paytm ONE) AI कमांडर आहे. मी तुम्हाला २ प्रमुख मोड्समध्ये मदत करू शकतो:\n\n• **Action Mode**: मोबाईल रिचार्ज, बस/ट्रेन/फ्लाइट तिकीट, वीज बिल आणि शॉपिंग डील्स १-क्लिकमध्ये पूर्ण करा.\n• **Resolve Mode**: अडकलेले पैसे, अयशस्वी UPI पेमेंट आणि रिफंडचे २४ तासांत जलद निवारण.\n\nतुम्हाला कोणत्या मोडमध्ये मदत हवी आहे?"
         elif lang == "hi":
-            ai_msg = "नमस्ते! मैं पेटीएम वन (Paytm ONE) AI कमांडर हूँ। मैं आपकी 2 मुख्य मोड्स में मदद कर सकता हूँ:\n\n⚡ **Action Mode**: मोबाइल रिचार्ज, बस/ट्रेन/फ्लाइट टिकट बुकिंग, बिजली बिल और शॉपिंग डील्स 1-क्लिक में करें।\n🛡️ **Resolve Mode**: अटके हुए पैसे, फेल यूपीआई पेमेंट और रिफंड का NPCI 24 घंटे में समाधान।\n\nआप कौन सा मोड देखना चाहते हैं?"
+            ai_msg = "नमस्ते! मैं पेटीएम वन (Paytm ONE) AI कमांडर हूँ। मैं आपकी 2 मुख्य मोड्स में मदद कर सकता हूँ:\n\n• **Action Mode**: मोबाइल रिचार्ज, बस/ट्रेन/फ्लाइट टिकट बुकिंग, बिजली बिल और शॉपिंग डील्स 1-क्लिक में करें।\n• **Resolve Mode**: अटके हुए पैसे, फेल यूपीआई पेमेंट और रिफंड का 24 घंटे में समाधान।\n\nआप कौन सा मोड देखना चाहते हैं?"
         else:
-            ai_msg = "Hello! I am Paytm ONE AI Commander. I can assist you across 2 core modes:\n\n⚡ **Action Mode**: Autonomous 1-click execution for Mobile Recharge, Flight & Bus Tickets, Electricity Bills, and Shopping Deals.\n🛡️ **Resolve Mode**: Autonomous 3-Way Reconciliation for stuck payments, failed UPI debits, and refund tracking with 24H SLA.\n\nWhich mode would you like to explore?"
+            ai_msg = "Hello! I am Paytm ONE AI Commander. I can assist you across 2 core modes:\n\n• **Action Mode**: Autonomous 1-click execution for Mobile Recharge, Flight & Bus Tickets, Electricity Bills, and Shopping Deals.\n• **Resolve Mode**: Autonomous 3-Way Reconciliation for stuck payments, failed UPI debits, and refund tracking with 24H SLA.\n\nWhich mode would you like to explore?"
 
         steps_log.append({
             "step": 4,
-            "title": "Sarvam AI Voice Synthesis",
-            "detail": f"Synthesizing authentic voice with Bulbul v3 ({lang}-IN)",
+            "title": "Neural Voice Synthesis",
+            "detail": f"Synthesizing verified audio voice ({lang}-IN)",
             "status": "completed"
         })
         audio_b64 = generate_sarvam_speech(ai_msg, "hi-IN" if lang == "hi" else ("mr-IN" if lang == "mr" else "en-IN"), fast_only=False)
@@ -526,7 +534,7 @@ def orchestrate_query(query: str, user_id: str = "paytm_user_01", language: str 
 
         steps_log.append({
             "step": 6,
-            "title": "Sarvam AI Voice Synthesis",
+            "title": "Neural Voice Synthesis",
             "detail": "Synthesizing authentic empathetic resolution audio",
             "status": "completed"
         })
@@ -584,15 +592,15 @@ def orchestrate_query(query: str, user_id: str = "paytm_user_01", language: str 
 
         steps_log.append({
             "step": 4,
-            "title": "Sarvam AI Voice Synthesis",
-            "detail": "Synthesizing authentic voice with Bulbul v3",
+            "title": "Neural Voice Synthesis",
+            "detail": "Synthesizing verified audio voice",
             "status": "completed"
         })
         audio_b64 = generate_sarvam_speech(ai_msg, "hi-IN" if lang == "hi" else ("mr-IN" if lang == "mr" else "en-IN"), fast_only=False)
 
         steps_log.append({
             "step": 5,
-            "title": "UNWIND Security Governance Gate",
+            "title": "Zero-Trust Security Governance Gate",
             "detail": "Waiting for User Approval & UPI PIN Confirmation",
             "status": "waiting_approval"
         })
@@ -643,15 +651,15 @@ def orchestrate_query(query: str, user_id: str = "paytm_user_01", language: str 
 
         steps_log.append({
             "step": 4,
-            "title": "Sarvam AI Voice Synthesis",
-            "detail": "Synthesizing authentic voice with Bulbul v3",
+            "title": "Neural Voice Synthesis",
+            "detail": "Synthesizing verified audio voice",
             "status": "completed"
         })
         audio_b64 = generate_sarvam_speech(ai_msg, "hi-IN" if lang == "hi" else ("mr-IN" if lang == "mr" else "en-IN"), fast_only=False)
 
         steps_log.append({
             "step": 5,
-            "title": "UNWIND Security Governance Gate",
+            "title": "Zero-Trust Security Governance Gate",
             "detail": "Waiting for User Approval & UPI PIN Confirmation",
             "status": "waiting_approval"
         })
@@ -701,15 +709,15 @@ def orchestrate_query(query: str, user_id: str = "paytm_user_01", language: str 
 
         steps_log.append({
             "step": 4,
-            "title": "Sarvam AI Voice Synthesis",
-            "detail": "Synthesizing authentic voice with Bulbul v3",
+            "title": "Neural Voice Synthesis",
+            "detail": "Synthesizing verified audio voice",
             "status": "completed"
         })
         audio_b64 = generate_sarvam_speech(ai_msg, "hi-IN" if lang == "hi" else ("mr-IN" if lang == "mr" else "en-IN"), fast_only=False)
 
         steps_log.append({
             "step": 5,
-            "title": "UNWIND Security Governance Gate",
+            "title": "Zero-Trust Security Governance Gate",
             "detail": "Waiting for User Approval & UPI PIN Confirmation",
             "status": "waiting_approval"
         })
@@ -759,15 +767,15 @@ def orchestrate_query(query: str, user_id: str = "paytm_user_01", language: str 
 
         steps_log.append({
             "step": 4,
-            "title": "Sarvam AI Voice Synthesis",
-            "detail": "Synthesizing authentic voice with Bulbul v3",
+            "title": "Neural Voice Synthesis",
+            "detail": "Synthesizing verified audio voice",
             "status": "completed"
         })
         audio_b64 = generate_sarvam_speech(ai_msg, "hi-IN" if lang == "hi" else ("mr-IN" if lang == "mr" else "en-IN"), fast_only=False)
 
         steps_log.append({
             "step": 5,
-            "title": "UNWIND Security Governance Gate",
+            "title": "Zero-Trust Security Governance Gate",
             "detail": "Waiting for User Approval & UPI PIN Confirmation",
             "status": "waiting_approval"
         })
@@ -819,15 +827,15 @@ def orchestrate_query(query: str, user_id: str = "paytm_user_01", language: str 
 
         steps_log.append({
             "step": 4,
-            "title": "Sarvam AI Voice Synthesis",
-            "detail": "Synthesizing authentic voice with Bulbul v3",
+            "title": "Neural Voice Synthesis",
+            "detail": "Synthesizing verified audio voice",
             "status": "completed"
         })
         audio_b64 = generate_sarvam_speech(ai_msg, "hi-IN" if lang == "hi" else ("mr-IN" if lang == "mr" else "en-IN"), fast_only=False)
 
         steps_log.append({
             "step": 5,
-            "title": "UNWIND Security Governance Gate",
+            "title": "Zero-Trust Security Governance Gate",
             "detail": "Waiting for User Approval & UPI PIN Confirmation",
             "status": "waiting_approval"
         })
@@ -875,8 +883,8 @@ def orchestrate_query(query: str, user_id: str = "paytm_user_01", language: str 
 
         steps_log.append({
             "step": 4,
-            "title": "Sarvam AI Voice Synthesis",
-            "detail": f"Synthesizing authentic voice with Bulbul v3 ({lang}-IN)",
+            "title": "Neural Voice Synthesis",
+            "detail": f"Synthesizing verified audio voice ({lang}-IN)",
             "status": "completed"
         })
         audio_b64 = generate_sarvam_speech(ai_msg, "hi-IN" if lang == "hi" else ("mr-IN" if lang == "mr" else "en-IN"), fast_only=False)
@@ -936,8 +944,8 @@ def orchestrate_query(query: str, user_id: str = "paytm_user_01", language: str 
 
         steps_log.append({
             "step": 4,
-            "title": "Sarvam AI Voice Synthesis",
-            "detail": f"Synthesizing authentic voice with Bulbul v3 ({lang}-IN)",
+            "title": "Neural Voice Synthesis",
+            "detail": f"Synthesizing verified audio voice ({lang}-IN)",
             "status": "completed"
         })
         audio_b64 = generate_sarvam_speech(ai_msg, "hi-IN" if lang == "hi" else ("mr-IN" if lang == "mr" else "en-IN"), fast_only=False)
@@ -1029,7 +1037,7 @@ def orchestrate_query(query: str, user_id: str = "paytm_user_01", language: str 
 
         steps_log.append({
             "step": 3,
-            "title": "Sarvam AI Voice Synthesis",
+            "title": "Neural Voice Synthesis",
             "detail": "Generating natural human voice audio response",
             "status": "completed"
         })
@@ -1080,7 +1088,7 @@ def orchestrate_query(query: str, user_id: str = "paytm_user_01", language: str 
 
         steps_log.append({
             "step": 3,
-            "title": "Sarvam AI Voice Synthesis",
+            "title": "Neural Voice Synthesis",
             "detail": "Generating natural human voice audio response",
             "status": "completed"
         })
@@ -1128,7 +1136,7 @@ def orchestrate_query(query: str, user_id: str = "paytm_user_01", language: str 
 
         steps_log.append({
             "step": 3,
-            "title": "Sarvam AI Voice Synthesis",
+            "title": "Neural Voice Synthesis",
             "detail": "Generating natural human voice audio response",
             "status": "completed"
         })
@@ -1176,7 +1184,7 @@ def orchestrate_query(query: str, user_id: str = "paytm_user_01", language: str 
 
         steps_log.append({
             "step": 3,
-            "title": "Sarvam AI Voice Synthesis",
+            "title": "Neural Voice Synthesis",
             "detail": "Generating natural human voice audio response",
             "status": "completed"
         })
@@ -1249,15 +1257,15 @@ def orchestrate_query(query: str, user_id: str = "paytm_user_01", language: str 
 
     steps_log.append({
         "step": 4,
-        "title": "Sarvam AI Voice Synthesis",
-        "detail": "Synthesizing authentic Indian audio with Bulbul v3",
+        "title": "Neural Voice Synthesis",
+        "detail": "Synthesizing verified audio voice",
         "status": "completed"
     })
     audio_b64 = generate_sarvam_speech(ai_msg, "hi-IN" if lang == "hi" else ("mr-IN" if lang == "mr" else "en-IN"), fast_only=False)
 
     steps_log.append({
         "step": 5,
-        "title": "UNWIND Security Governance Gate",
+        "title": "Zero-Trust Security Governance Gate",
         "detail": "Waiting for User Approval & UPI PIN Confirmation",
         "status": "waiting_approval"
     })

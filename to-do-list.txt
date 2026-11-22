@@ -1,0 +1,87 @@
+================================================================================
+PAYTM ONE — AUTONOMOUS FINANCIAL OS: MASTER REFACTORING & UPGRADE PLAN
+================================================================================
+Goal: Rebuild backend routing using LangGraph with proper node decisions, implement 
+a rich SQLite scenarios database, fix shopping/travel/recharge routing bugs, and 
+deliver seamless Chat History, Voice Input, and Audio Play/Pause controls.
+================================================================================
+
+[PHASE 1] SQLITE SCENARIO DATABASE (backend/database/)
+--------------------------------------------------------------------------------
+[x] 1.1 Create SQLite database engine (backend/database/db_service.py)
+        - Thread-safe connection handling using sqlite3.
+        - Dynamic SQL query helper with parameter binding.
+[x] 1.2 Design comprehensive database schema:
+        - telecom_plans (plan_id, operator, price, validity, data_daily, calls, 5g, ott, is_cheapest, badge)
+        - travel_tickets (ticket_id, from_city, to_city, travel_type, carrier, dep_time, arr_time, price, seats, is_cheapest, is_fastest)
+        - shopping_deals (deal_id, category, city, brand, title, discount_pct, coupon_code, mall_name, badge)
+        - utility_bills (bill_id, service_type, provider_name, consumer_id, consumer_name, amount_due, due_date, cashback)
+        - dispute_cases (case_id, txn_id, dispute_type, amount, service_name, bank, status, reconciliation_json, tat_sla)
+[x] 1.3 Seed rich scenario dummy data (backend/database/seed_data.py):
+        - 19 Telecom plans (Jio, Airtel, Vi, BSNL) from ₹107 to ₹3599 (cheapest 1GB, 2GB 5G, Netflix packs).
+        - 19 Travel routes (Mumbai-Pune, Pune-Goa, Delhi-Mumbai, etc.) across Flights, Shivneri Buses, Vande Bharat Trains.
+        - 11 Shopping deals in Pune, Mumbai, Delhi across Croma, Reliance Digital, Zomato, Myntra, PVR.
+        - 7 Utility bills (MSEDCL Electricity, NETC FASTag, Tata Play DTH).
+        - 6 Dispute forensic scenarios (₹599 failed Jio recharge, ₹1,200 pending refund, ₹350 merchant QR mismatch, duplicate debit, wrong UPI transfer, BBPS delay).
+
+--------------------------------------------------------------------------------
+[PHASE 2] LANGGRAPH MULTI-AGENT STATEGRAPH ENGINE (backend/graph_orchestrator.py)
+--------------------------------------------------------------------------------
+[x] 2.1 Define TypedDict Graph State (PaytmState):
+        - query, user_id, language ('en' | 'hi' | 'mr'), mode ('ACTION' | 'RESOLVE' | 'CHAT')
+        - detected_service ('recharge', 'travel', 'shopping', 'electricity', 'fastag', 'dth', 'gold', 'dispute')
+        - entities (budget, from_city, to_city, operator, is_cheapest, is_fastest)
+        - scenario_data (queried from SQLite)
+        - steps_log (step-by-step multi-agent audit trace)
+        - ai_message (localized in English, Hindi, or Marathi)
+        - citations & nexconn_chat (You.com & Nexconn live handoff)
+[x] 2.2 Implement Graph Nodes:
+        - Node 1: RouterNode (Intent & Entity Extraction + Strict Disambiguation)
+        - Node 2A: ActionRechargeNode (Queries SQLite telecom_plans with operator/budget/cheapest filter)
+        - Node 2B: ActionTravelNode (Queries SQLite travel_tickets with route/cheapest/fastest filters)
+        - Node 2C: ActionShoppingNode (Queries SQLite shopping_deals with city/category/mall filters)
+        - Node 2D: ActionBillsNode (Queries SQLite utility_bills for electricity, fastag, dth)
+        - Node 2E: ActionGoldNode (Calculates MMTC-PAMP 24K pure gold rates & vault allocation)
+        - Node 3: ResolveDisputeNode (Generates 3-Way Reconciliation Matrix + Regulatory proof + Nexconn room)
+        - Node 4: GeneralChatNode (Introduces Paytm ONE Commander & two core modes)
+        - Node 5: VoiceSynthesisNode (Synthesizes voice readout with authentic female cadence)
+[x] 2.3 Construct Strict Conditional Routing Edges:
+        - Fix shopping bug: Explicit routing edges ensure shopping queries NEVER bleed into recharge.
+        - Intent decision routing:
+          * Shopping/deals/discounts -> shopping_node
+          * Flights/buses/trains -> travel_node
+          * Telecom/recharge/data -> recharge_node
+          * Utility bills/FASTag/DTH -> bills_node
+          * Disputes/refunds/deductions -> dispute_node
+          * Chitchat/greetings -> chat_node
+
+--------------------------------------------------------------------------------
+[PHASE 3] BACKEND FASTAPI & TEST SUITE INTEGRATION
+--------------------------------------------------------------------------------
+[x] 3.1 Connect LangGraph StateGraph pipeline to FastAPI endpoint (/api/chat in backend/main.py).
+[x] 3.2 Update and execute test suite covering all scenarios:
+        - Shopping queries in Pune and Mumbai (verified Croma, Zomato, Myntra)
+        - Cheapest flights and bus tickets between Mumbai and Pune (verified Deccan Queen ₹380, Shivneri ₹480)
+        - Cheapest recharge plans and OTT bundles (verified Jio ₹149, Airtel ₹199, Netflix ₹398)
+        - Failed recharge dispute and uncredited refund tracking (verified ₹599 and ₹1,200 cases)
+        - Hindi & English multilingual queries
+
+--------------------------------------------------------------------------------
+[PHASE 4] FRONTEND UI/UX ENHANCEMENTS (frontend/src/)
+--------------------------------------------------------------------------------
+[x] 4.1 Fixed Auto-Answering Jio Bug:
+        - When switching to Action Mode via nav bar, landing cards, or buttons, query starts clean with null result.
+        - Only answers when the user explicitly clicks Execute/Send, hits Enter, or submits a voice query.
+        - Category tabs set query in the search bar without auto-executing.
+[x] 4.2 Multi-Vertical Result Renderers:
+        - Added dedicated UI cards for Shopping Deals (Croma, Zomato, Myntra with coupon codes & Copy button).
+        - Added dedicated UI cards for BBPS Utility Bills (Consumer ID, Due Date, and UPI PIN Pay button).
+        - Added dedicated UI cards for 24K Digital Gold (Spot rates, grams calculation, IDBI Trusteeship vault).
+[x] 4.3 Conversational Chat History Thread:
+        - Collapsible session history showing user prompts and agent execution results.
+[x] 4.4 Voice Audio Play / Pause / Resume Button & Strict Lady Voice Enforcement:
+        - Interactive audio controls with Play, Pause, Resume, and Stop controls.
+        - Strict female/lady voice cadence across browser and backend.
+[x] 4.5 Brand Cleanliness & Zero Third-Party Mentions:
+        - Completely removed any mention of Sarvam, Groq, SerpApi, You.com, Nexconn, FastAPI or localhost:8000 on customer-facing UI.
+================================================================================

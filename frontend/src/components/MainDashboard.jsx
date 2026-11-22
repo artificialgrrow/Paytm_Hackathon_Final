@@ -8,6 +8,7 @@ import {
 import { playSound } from '../utils/audio';
 import { speak, VoiceRecognition } from '../utils/speech';
 import { fetchMerchantData, executeAgentQuery } from '../data/telecomPlans';
+import { FormattedMessage } from './FormattedMessage';
 
 export default function MainDashboard({ onLogOut, onOpenPinModal, onOpenNexconn, initialQuery }) {
   // Navigation & Mode
@@ -261,7 +262,6 @@ export default function MainDashboard({ onLogOut, onOpenPinModal, onOpenNexconn,
                   onClick={() => {
                     playSound('click');
                     setActiveMode('ACTION');
-                    handleSendMessage('Show me best recharge plans for Jio');
                   }}
                   className={`px-3 py-1 rounded-pill transition-colors flex items-center gap-1 ${
                     activeMode === 'ACTION' ? 'bg-primary text-white shadow-xs' : 'text-body hover:text-ink'
@@ -274,7 +274,6 @@ export default function MainDashboard({ onLogOut, onOpenPinModal, onOpenNexconn,
                   onClick={() => {
                     playSound('click');
                     setActiveMode('RESOLVE');
-                    handleSendMessage('Mera ₹599 ka recharge fail ho gaya refund check karo');
                   }}
                   className={`px-3 py-1 rounded-pill transition-colors flex items-center gap-1 ${
                     activeMode === 'RESOLVE' ? 'bg-semantic-down text-white shadow-xs' : 'text-body hover:text-ink'
@@ -291,7 +290,7 @@ export default function MainDashboard({ onLogOut, onOpenPinModal, onOpenNexconn,
               <div className="flex items-center justify-between">
                 <div className="font-semibold text-sm text-ink flex items-center gap-1.5">
                   <Zap className="w-4 h-4 text-primary" />
-                  <span>⚡ Action Mode (Paytm ONE)</span>
+                  <span>Action Mode (Paytm ONE)</span>
                 </div>
                 <span className="text-[10px] font-mono text-primary font-bold">Fulfillment Rail</span>
               </div>
@@ -305,7 +304,7 @@ export default function MainDashboard({ onLogOut, onOpenPinModal, onOpenNexconn,
               <div className="flex items-center justify-between">
                 <div className="font-semibold text-sm text-ink flex items-center gap-1.5">
                   <ShieldAlert className="w-4 h-4 text-semantic-down" />
-                  <span>🛡️ Resolve Mode (Paytm Resolve)</span>
+                  <span>Resolve Mode (Paytm Resolve)</span>
                 </div>
                 <span className="text-[10px] font-mono text-semantic-down font-bold">Dispute Rail</span>
               </div>
@@ -467,9 +466,9 @@ export default function MainDashboard({ onLogOut, onOpenPinModal, onOpenNexconn,
                   )}
 
                   {/* Message Prose */}
-                  <p className="text-[14px] font-normal leading-relaxed whitespace-pre-wrap">
-                    {m.text}
-                  </p>
+                  <div className="text-[14px] font-normal leading-relaxed">
+                    <FormattedMessage text={m.text} />
+                  </div>
 
                   {/* DYNAMIC ACTION CARD (If Agent Result included a plan) */}
                   {m.payload?.plan_data?.best && (
@@ -583,19 +582,19 @@ export default function MainDashboard({ onLogOut, onOpenPinModal, onOpenNexconn,
               onClick={() => handleSendMessage('Sharma Telecom ka Jio 299 recharge karo')}
               className="bg-surface-soft hover:bg-surface-strong text-ink px-2.5 py-1 rounded-pill transition-colors text-[11px]"
             >
-              📱 Jio 299 Recharge
+              Jio 299 Recharge
             </button>
             <button
               onClick={() => handleSendMessage('Paise cut gaye 599 recharge nahi hua refund status')}
               className="bg-surface-soft hover:bg-surface-strong text-ink px-2.5 py-1 rounded-pill transition-colors text-[11px]"
             >
-              🛡️ Check ₹599 Failed Refund
+              Check ₹599 Failed Refund
             </button>
             <button
               onClick={() => handleSendMessage('Show all catalog plans from this merchant')}
               className="bg-surface-soft hover:bg-surface-strong text-ink px-2.5 py-1 rounded-pill transition-colors text-[11px]"
             >
-              📋 All Plans
+              All Plans
             </button>
           </div>
 

@@ -6,6 +6,7 @@ import {
 import { playSound } from '../utils/audio';
 import { speak, VoiceRecognition } from '../utils/speech';
 import { executeAgentQuery } from '../data/telecomPlans';
+import { FormattedMessage } from './FormattedMessage';
 
 export default function AiWorkspace({ initialPrompt, onClose, onOpenPinModal, onOpenNexconn }) {
   const [query, setQuery] = useState(initialPrompt || '');
@@ -196,7 +197,7 @@ export default function AiWorkspace({ initialPrompt, onClose, onOpenPinModal, on
                 }}
                 className="bg-surface-strong hover:bg-hairline text-ink px-2.5 py-1 rounded-pill transition-colors font-medium"
               >
-                📱 Jio 2GB + Netflix
+                Jio 2GB + Netflix
               </button>
               <button
                 onClick={() => {
@@ -205,7 +206,7 @@ export default function AiWorkspace({ initialPrompt, onClose, onOpenPinModal, on
                 }}
                 className="bg-surface-strong hover:bg-hairline text-ink px-2.5 py-1 rounded-pill transition-colors font-medium"
               >
-                🛡️ Failed Payment & Refund
+                Failed Payment & Refund
               </button>
               <button
                 onClick={() => {
@@ -214,7 +215,7 @@ export default function AiWorkspace({ initialPrompt, onClose, onOpenPinModal, on
                 }}
                 className="bg-surface-strong hover:bg-hairline text-ink px-2.5 py-1 rounded-pill transition-colors font-medium"
               >
-                ✈️ Pune-Mumbai Flights
+                Pune-Mumbai Flights
               </button>
             </div>
           </div>
@@ -259,9 +260,9 @@ export default function AiWorkspace({ initialPrompt, onClose, onOpenPinModal, on
                   )}
                 </div>
 
-                <p className="text-[15px] font-normal text-ink leading-relaxed">
-                  {result.ai_message}
-                </p>
+                <div className="text-[15px] font-normal leading-relaxed">
+                  <FormattedMessage text={result.ai_message} />
+                </div>
               </div>
 
               {/* BRANCH 1: RECHARGE MODE */}

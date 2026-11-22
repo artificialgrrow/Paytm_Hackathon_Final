@@ -1,0 +1,226 @@
+{
+  "timestamp": "2026-11-22 15:52:53",
+  "total_cases": 11,
+  "passed": 11,
+  "pass_rate": "100%",
+  "details": [
+    {
+      "id": "CASE-01",
+      "category": "Action: Entertainment / Movies",
+      "query": "Which movie tickets are available right now in IMAX?",
+      "status": "PASS",
+      "latency_ms": 17,
+      "mode": "ACTION",
+      "service": "movies",
+      "mode_ok": true,
+      "service_ok": true,
+      "payload_ok": true,
+      "payload_key": "movie_data",
+      "ai_message_preview": "Here are the top blockbuster movies currently running in multiplexes! 'Kalki 2898 AD' (IMAX 3D) is showing at PVR INOX Phoenix Marketcity Vi",
+      "urls_count": 2,
+      "urls": [
+        "https://paytm.com/movies",
+        "https://www.pvrcinemas.com"
+      ],
+      "raw_asterisks": false
+    },
+    {
+      "id": "CASE-02",
+      "category": "Action: Offers & Promo Codes",
+      "query": "Are there any promo codes?",
+      "status": "PASS",
+      "latency_ms": 4,
+      "mode": "ACTION",
+      "service": "promos",
+      "mode_ok": true,
+      "service_ok": true,
+      "payload_ok": true,
+      "payload_key": "promo_data",
+      "ai_message_preview": "Found active verified promo codes across Paytm services! Use code 'FLIGHTFLY' for 'Domestic Flight Booking Bonanza' (Up to \u20b91,500 Instant Di",
+      "urls_count": 2,
+      "urls": [
+        "https://paytm.com/offers",
+        "https://www.npci.org.in"
+      ],
+      "raw_asterisks": false
+    },
+    {
+      "id": "CASE-03",
+      "category": "Action: Consolidated Pending Bills",
+      "query": "Are there any pending bills?",
+      "status": "PASS",
+      "latency_ms": 2,
+      "mode": "ACTION",
+      "service": "bills",
+      "mode_ok": true,
+      "service_ok": true,
+      "payload_ok": true,
+      "payload_key": "bills_data",
+      "ai_message_preview": "You have 5 pending utility bills due totaling \u20b94,258: Maharashtra (\u20b91420), Mahanagar (\u20b9840), Pune (\u20b9420), JioFiber (\u20b91179), and your FASTag ",
+      "urls_count": 2,
+      "urls": [
+        "https://www.bharatbillpay.com",
+        "https://www.mahadiscom.in"
+      ],
+      "raw_asterisks": false
+    },
+    {
+      "id": "CASE-04",
+      "category": "Action: Mobile Telecom Recharge",
+      "query": "Recharge Jio 299 with 2GB daily data",
+      "status": "PASS",
+      "latency_ms": 2,
+      "mode": "ACTION",
+      "service": "recharge",
+      "mode_ok": true,
+      "service_ok": true,
+      "payload_ok": true,
+      "payload_key": "plan_data",
+      "ai_message_preview": "I selected the best matching Jio \u20b9299 pack (2 GB / Day, 28 Days, Unlimited Calls). Ready to authorize with UPI PIN?",
+      "urls_count": 2,
+      "urls": [
+        "https://www.jio.com/recharge",
+        "https://www.trai.gov.in"
+      ],
+      "raw_asterisks": false
+    },
+    {
+      "id": "CASE-05",
+      "category": "Action: Live Travel Booking",
+      "query": "Cheapest flights or trains from Mumbai to Pune",
+      "status": "PASS",
+      "latency_ms": 3,
+      "mode": "ACTION",
+      "service": "travel",
+      "mode_ok": true,
+      "service_ok": true,
+      "payload_ok": true,
+      "payload_key": "travel_data",
+      "ai_message_preview": "For Mumbai to Pune, the most economical option is Deccan Queen Superfast (12123) (TRAIN) at just \u20b9380. Departs at 05:10 PM. Ready to book?",
+      "urls_count": 4,
+      "urls": [
+        "https://www.google.com/travel/flights?q=flights+Mumbai+to+Pune",
+        "https://www.skyscanner.co.in/routes/bom/pnq/mumbai-to-pune.html",
+        "https://www.irctc.co.in"
+      ],
+      "raw_asterisks": false
+    },
+    {
+      "id": "CASE-06",
+      "category": "Action: Retail Shopping Deals",
+      "query": "Show me shopping deals in Pune at Croma",
+      "status": "PASS",
+      "latency_ms": 1,
+      "mode": "ACTION",
+      "service": "shopping",
+      "mode_ok": true,
+      "service_ok": true,
+      "payload_ok": true,
+      "payload_key": "shopping_data",
+      "ai_message_preview": "Found top retail deals in Pune! Croma Megastore at Phoenix Marketcity Viman Nagar is offering 'Flat \u20b92,000 Off on Smart TVs & Laptops' with ",
+      "urls_count": 2,
+      "urls": [
+        "https://www.croma.com",
+        "https://www.phoenixmarketcity.com"
+      ],
+      "raw_asterisks": false
+    },
+    {
+      "id": "CASE-07",
+      "category": "Action: 24K Digital Gold",
+      "query": "Buy \u20b9500 24K digital gold",
+      "status": "PASS",
+      "latency_ms": 2,
+      "mode": "ACTION",
+      "service": "gold",
+      "mode_ok": true,
+      "service_ok": true,
+      "payload_ok": true,
+      "payload_key": "gold_data",
+      "ai_message_preview": "Live 24K 99.99% pure digital gold rate is \u20b97640/gm. For \u20b9500, you will receive 0.0654 grams in IDBI Trusteeship vault. Ready to buy?",
+      "urls_count": 2,
+      "urls": [
+        "https://www.mmtcpamp.com",
+        "https://www.idbitrustee.com"
+      ],
+      "raw_asterisks": false
+    },
+    {
+      "id": "CASE-08",
+      "category": "Resolve: Pending Transactions at Switch",
+      "query": "Are there any pending transactions?",
+      "status": "PASS",
+      "latency_ms": 2,
+      "mode": "RESOLVE",
+      "service": "dispute",
+      "mode_ok": true,
+      "service_ok": true,
+      "payload_ok": true,
+      "payload_key": "disputes_list",
+      "ai_message_preview": "Amount of \u20b9599 debited from your SBI account but timed out at the telecom switch. Under NPCI Harmonisation Circular No. 81, automated revers",
+      "urls_count": 1,
+      "urls": [
+        "https://www.npci.org.in/what-we-do/upi/circulars"
+      ],
+      "raw_asterisks": false
+    },
+    {
+      "id": "CASE-09",
+      "category": "Resolve: Active Refund Tracking",
+      "query": "Are there any refund requests?",
+      "status": "PASS",
+      "latency_ms": 2,
+      "mode": "RESOLVE",
+      "service": "dispute",
+      "mode_ok": true,
+      "service_ok": true,
+      "payload_ok": true,
+      "payload_key": "disputes_list",
+      "ai_message_preview": "You have 3 active refund requests being tracked: 1) Myntra Order \u20b91,200 (ARN: 8201948201, Active in RBI clearing cycle, ETA 48H); 2) IRCTC C",
+      "urls_count": 2,
+      "urls": [
+        "https://www.npci.org.in/what-we-do/upi/circulars",
+        "https://rbi.org.in/Scripts/AboutUsDisplay.aspx?Id=1236"
+      ],
+      "raw_asterisks": false
+    },
+    {
+      "id": "CASE-10",
+      "category": "Resolve: Failed Debits & Double Deductions",
+      "query": "Are there any failed transactions?",
+      "status": "PASS",
+      "latency_ms": 2,
+      "mode": "RESOLVE",
+      "service": "dispute",
+      "mode_ok": true,
+      "service_ok": true,
+      "payload_ok": true,
+      "payload_key": "disputes_list",
+      "ai_message_preview": "Identified 4 failed / debited transactions on your ledger: 1) Jio Recharge \u20b9599 (Operator gateway timeout); 2) SpiceJet Flight \u20b92,150 (Seat ",
+      "urls_count": 1,
+      "urls": [
+        "https://www.npci.org.in/what-we-do/upi/circulars"
+      ],
+      "raw_asterisks": false
+    },
+    {
+      "id": "CASE-11",
+      "category": "Resolve: Formal Nodal Complaints & SLAs",
+      "query": "Show me registered complaints",
+      "status": "PASS",
+      "latency_ms": 2,
+      "mode": "RESOLVE",
+      "service": "dispute",
+      "mode_ok": true,
+      "service_ok": true,
+      "payload_ok": true,
+      "payload_key": "disputes_list",
+      "ai_message_preview": "Found 2 formal escalated dispute tickets: 1) COMP_2026_0941 (Delayed \u20b9599 recharge, assigned to Nodal Officer Mr. Rajesh Sharma); 2) COMP_20",
+      "urls_count": 1,
+      "urls": [
+        "https://rbi.org.in/Scripts/AboutUsDisplay.aspx?Id=1236"
+      ],
+      "raw_asterisks": false
+    }
+  ]
+}

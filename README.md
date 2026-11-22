@@ -1,191 +1,118 @@
-# 🔷 Paytm ONE & Paytm Resolve
-### *India's First Autonomous Conversational Financial Operating System*
-#### **Beyond 9TO5 Buildathon (Paytm Hackathon Mumbai)**
+# 🔷 PaytmOne AI
+### Autonomous Dual-Engine Conversational Financial Platform
 
-[![Live Production](https://img.shields.io/badge/Production%20Vercel-paytmone.vercel.app-00b9f1?style=for-the-badge&logo=vercel)](https://paytmone.vercel.app)
-[![AI Workspace](https://img.shields.io/badge/Paytm%20ONE-AI%20Workspace-002970?style=for-the-badge&logo=paytm)](https://paytmone.vercel.app/ai-workspace.html)
-[![System Architecture](https://img.shields.io/badge/Inside%20Paytm%20AI-Interactive%20Canvas-ff6d00?style=for-the-badge&logo=n8n)](https://paytmone.vercel.app/system-showcase.html)
-[![GitHub Repository](https://img.shields.io/badge/GitHub-akashbichukale111%2Fpaytmone-181717?style=for-the-badge&logo=github)](https://github.com/akashbichukale111/paytmone)
-[![Track 1: SerpApi](https://img.shields.io/badge/Track%201-Best%20Use%20of%20SerpApi-blue?style=for-the-badge)]()
-[![Track 2: You.com](https://img.shields.io/badge/Track%202-You.com%20Live%20Web%20Citations-purple?style=for-the-badge)]()
-[![Track 3: Nexconn](https://img.shields.io/badge/Track%203-Nexconn%20Chat%20SDK-green?style=for-the-badge)]()
-[![Voice AI: Sarvam](https://img.shields.io/badge/Indic%20Voice-Sarvam%20AI%20Bulbul%20v3-orange?style=for-the-badge)]()
+> A voice-first AI commander for everyday financial actions and autonomous payment dispute resolution. Speak or type in English or Hindi to instantly get things done.
 
 ---
 
-## 🌟 Executive Summary & Live Deployments
+## 📌 Problem Statement
 
-**Paytm ONE** is an autonomous conversational financial operating system engineered to collapse traditional multi-step fintech navigation into a single, unified execution surface. While existing bots (like Google Pay) merely read past transactions or deep-link to screens (like PhonePe), Paytm ONE **autonomously discovers, mathematically verifies, legally investigates, and executes transactions** with zero-trust governance.
+Every day, hundreds of millions of consumers across India face two major bottlenecks in digital finance:
 
-| Environment | Description | Live URL |
+### 1. Cluttered App Menus & Fragmented Services (Action Friction)
+Managing everyday digital payments has become overwhelming. Finding the optimal mobile recharge pack, booking movie tickets, hunting for working promo codes, comparing flight or train fares, and paying scattered utility bills (electricity, water, piped gas, broadband, FASTag) requires navigating dozens of complex, ad-heavy app screens. Everyday consumers and non-technical users waste time and frequently miss out on better tariffs and cashbacks.
+
+### 2. The Opaque "Payment Pending" Black Box (Resolution Friction)
+When a digital payment or refund fails—whether a mobile recharge times out, an e-commerce refund is delayed, or a shop counter soundbox remains silent despite a bank debit—users are trapped in an opaque limbo. Traditional customer care bots offer generic deflection: *"Please wait 3 to 5 business days."* Neither the consumer nor the merchant has access to real-time banking rails to see where the money is actually stuck.
+
+---
+
+## 💡 The Solution: PaytmOne AI
+
+**PaytmOne AI** unifies digital finance into a conversational experience powered by two specialized, autonomous engines:
+
+### ⚡ 1. Action Mode (Instant Execution)
+Your autonomous assistant for everyday consumer payments and bookings:
+* **Movie Tickets & Cinema:** Live blockbuster showtimes, IMAX/4DX format selection, seat availability, and snack combos.
+* **Consolidated Pending Bills:** BBPS hub that aggregates all unpaid utility invoices (Electricity, Piped Gas, Water, Broadband, FASTag) with a single-click settlement option.
+* **Verified Promo Codes:** Instant discovery and 1-click clipboard copy for active Paytm discount coupons across travel, shopping, and utilities.
+* **Mobile Recharges:** Tariff optimization across Jio, Airtel, Vi, and BSNL with 5G eligibility and OTT benefits.
+* **Travel & Transit:** Live comparison of flights, IRCTC trains (Vande Bharat), and intercity buses with instant seat lock.
+* **Shopping Deals & Digital Gold:** Mall discounts at Phoenix Marketcity and 24K MMTC-PAMP digital gold purchases.
+* **Zero-Trust Security:** Strict Human-in-the-Loop authorization. The AI prepares the verified transaction payload, but the user always authorizes the payment via native UPI PIN entry.
+
+### 🛡️ 2. Resolve Mode (Forensic Dispute Resolution)
+Your autonomous forensic payment investigator for stuck transactions, refunds, and failed debits:
+* **3-Way Reconciliation Matrix:** Cross-audits the **Customer Bank CBS**, **NPCI Central Switch**, and **Destination Ledger** in real time to pinpoint the exact failure point.
+* **Multi-Case Dispute Directory:** Tracks pending transactions, active e-commerce refunds (Myntra, Swiggy, IRCTC), failed double-debits, and nodal complaints.
+* **RBI Circular 81 Compliance:** Automatically applies official RBI Harmonisation rules guaranteeing T+1 auto-reversal SLAs.
+* **Cryptographic Evidence Seal:** Issues an immutable SHA-256 digital audit docket for every case.
+* **Live Specialist Escalation:** Instant 1-click connection to a live Nodal Banking Officer when manual review is required.
+
+---
+
+## 🎯 Demo Cheat-Sheet: Questions You Can Ask
+
+| Mode | Section | Try Asking / Speaking |
 | :--- | :--- | :--- |
-| 🚀 **Paytm ONE Super App** | Main client app with edge-to-edge UI, instant voice triggers & live dashboard | [https://paytmone.vercel.app](https://paytmone.vercel.app) |
-| ⚡ **AI Workspace (Interactive)** | Full Conversational Action & Resolve modes with live Sarvam Indic voice | [https://paytmone.vercel.app/ai-workspace.html](https://paytmone.vercel.app/ai-workspace.html) |
-| 🔍 **Inside Paytm AI (Showcase)** | Interactive node canvas showing real-time agent dispatch, telemetry & JSON logs | [https://paytmone.vercel.app/system-showcase.html](https://paytmone.vercel.app/system-showcase.html) |
-| 📦 **GitHub Repository** | Production repository for Beyond 9TO5 Buildathon | [https://github.com/akashbichukale111/paytmone](https://github.com/akashbichukale111/paytmone) |
+| **Action** | **Movies** | `"Which movie tickets are available right now in IMAX?"` |
+| **Action** | **Promo Codes** | `"Are there any promo codes?"` |
+| **Action** | **Pending Bills** | `"Are there any pending bills?"` |
+| **Action** | **Recharge** | `"Recharge Jio 299 with 2GB daily data"` |
+| **Action** | **Travel** | `"Cheapest flights or trains from Mumbai to Pune"` |
+| **Action** | **Shopping** | `"Show me shopping deals in Pune at Croma"` |
+| **Action** | **Gold** | `"Buy ₹500 24K digital gold"` |
+| **Resolve** | **Pending Payments** | `"Are there any pending transactions?"` |
+| **Resolve** | **Active Refunds** | `"Are there any refund requests?"` |
+| **Resolve** | **Failed Debits** | `"Are there any failed transactions?"` |
+| **Resolve** | **Complaints** | `"Show me registered complaints"` |
 
 ---
 
-## 📰 The Core Problem: Real-World Breakdown in Indian Fintech
+## 🚀 Quick Setup Guide (Run in 3 Minutes)
 
-Every month, millions of Indian consumers and merchants encounter three critical structural breakdowns:
-
-```
-+---------------------------------------------------------------------------------------------------------+
-|                                    DAILY FINANCIAL INVESTIGATION DESK                                   |
-+---------------------------------------------------------------------------------------------------------+
-| [HEADLINE 1] 24-72 HOUR AMBIGUOUS "PENDING" TRANSACTION LIMBO                                           |
-|   "Paytm explicitly documents persistent failure states where bank debits succeed but telecom/operator |
-|   confirmations vanish. Users are stranded for 3 days with opaque bot loops and zero recourse."          |
-+---------------------------------------------------------------------------------------------------------+
-| [HEADLINE 2] CONSUMER COURT SLAMS FINTECH ₹1 LAKH COMPENSATION FOR FAILED BILL PAYMENT                  |
-|   "Consumer commission case: User debited for utility bill, payment never credited to target account.   |
-|   Standard bots gave canned responses. No forensic 3-way reconciliation or legal evidence was provided."|
-+---------------------------------------------------------------------------------------------------------+
-| [HEADLINE 3] COMPLICATED MULTI-TIER PLAN DISCOVERY & DRIFT MATH                                         |
-|   "Telecom operators fragment plans across hundreds of circles with hidden FUP caps and OTT bundles.    |
-|   Users spend 10+ minutes navigating 15 menus, often choosing suboptimal packs without 5G eligibility."  |
-+---------------------------------------------------------------------------------------------------------+
-```
+### Prerequisites
+* **Python 3.10+** — [python.org](https://www.python.org/downloads/)
+* **Node.js 18+** — [nodejs.org](https://nodejs.org/)
 
 ---
 
-## 🚀 The Solution: Two Core Autonomous Modes
-
-Paytm ONE replaces manual navigation and static chatbot deflection with two high-powered agentic operational modes:
-
-### 1️⃣ Action Mode (Paytm ONE Autonomous Execution)
-* **Natural Vernacular Discovery:** Speak naturally in Marathi, Hindi, or English (e.g., *"मला ₹300 मध्ये Jio 2GB daily data recharge हवा"*).
-* **Track 1: SerpApi Live Deals Engine:** Extracts live telecom circle tariffs, flights, hotels, and electricity bill status with zero LLM hallucination.
-* **Sarvam AI Bulbul v3:** High-fidelity Indic voice generation (streaming authentic Marathi & Hindi speech).
-* **UNWIND Zero-Trust PIN Gate:** No money moves without an explicit human PIN confirmation modal, preventing unauthorized agentic execution.
-* **Covered Services:**
-  - 📱 **Mobile Recharge:** Jio, Airtel, Vi, BSNL with 5G eligibility & OTT comparison
-  - ✈️ **Travel Booking:** Flights & Shivneri AC Volvo bus routes
-  - 🚗 **FASTag Toll:** NHAI instant fast-pass top-up under 2 seconds
-  - ⚡ **Electricity Bills:** MSEDCL / Mahavitaran bill fetch with early payment discounts
-  - 🎬 **Entertainment:** Movie ticket booking (Pushpa 2 IMAX) & Tata Play DTH TV
-
-### 2️⃣ Resolve Mode (Paytm Resolve Forensic Dispute Recovery)
-* **3-Way Reconciliation Matrix:** Automatically inspects Bank CBS Core, NPCI Switch, and Operator Gateway status to pinpoint the exact failure node.
-* **Track 2: You.com Legal Citations:** Retrieves cited, legally binding web data — specifically **RBI Circular 81 (Harmonisation of Turn Around Time - TAT)** mandating ₹100/day compensation for delayed reversals.
-* **Track 3: Nexconn Chat SDK:** Instant low-latency WebSocket escalation to a live human Nodal Banking Officer when autonomous resolution encounters ambiguity.
-
----
-
-## 🏆 Beyond 9TO5 Buildathon: Sponsor Integrations Matrix
-
-| Track / Sponsor | Technology | Role in Paytm ONE & Resolve |
-| :--- | :--- | :--- |
-| **Track 1** | **SerpApi** | Real-time Search Engine API retrieving live circle-specific telecom tariffs, flight timings, fuel rates, and live retailer offers. |
-| **Track 2** | **You.com** | Live, cited web data API providing legal audit grounding, regulatory RBI circular citations, and consumer grievance evidence. |
-| **Track 3** | **Nexconn Chat SDK** | Real-time communication SDK powering low-latency WebSocket escalation directly from the dispute matrix to banking nodal desks. |
-| **Indic Voice** | **Sarvam AI (Bulbul v3)** | Authentic Indian voice AI delivering natural spoken Marathi, Hindi, and Indian English audio prompts and Soundbox announcements. |
-| **Fast LLM** | **Groq (Llama-3.3 70B)** | Sub-350ms neural intent routing, zero-drift parameter extraction, and multi-lingual query normalization. |
-| **Governance** | **UNWIND Framework** | Zero-trust safety gate enforcing mandatory 4-digit PIN authorization and Merkle-tree state immutability. |
-
----
-
-## 🛠️ System Architecture
-
-```
-                                  [ User Input: Voice / Text / Chip ]
-                                                   │
-                                                   ▼
-                                       [ Groq Llama-3.3 Router ]
-                                      (Sub-350ms Intent Classifier)
-                                                   │
-                        ┌──────────────────────────┴──────────────────────────┐
-                        ▼                                                     ▼
-               [ ACTION MODE ]                                       [ RESOLVE MODE ]
-                        │                                                     │
-        ┌───────────────┴───────────────┐                     ┌───────────────┴───────────────┐
-        ▼                               ▼                     ▼                               ▼
- [ Track 1: SerpApi ]         [ Sarvam Bulbul v3 ]     [ Track 2: You.com ]         [ Track 3: Nexconn ]
- (Live Circle Tariffs)         (Indic Voice Stream)    (RBI Circular 81 Proof)      (Live WebSocket Chat)
-        │                               │                     │                               │
-        └───────────────┬───────────────┘                     └───────────────┬───────────────┘
-                        │                                                     │
-                        ▼                                                     ▼
-           [ UNWIND Zero-Trust PIN Gate ]                        [ 3-Way Forensic Matrix ]
-                        │                                                     │
-                        ▼                                                     ▼
-         [ Payment Execution & Receipt ]                        [ SLA Dispute Resolution ]
-```
-
----
-
-## 💻 Tech Stack
-
-- **Frontend:** Vanilla JavaScript (ES6+), HTML5, Tailwind CSS, Web Audio API, Web Speech Recognition.
-- **Backend Orchestrator:** FastAPI, Python 3.12, Uvicorn, Async HTTP clients (`httpx`, `requests`).
-- **AI Models & Agents:** Groq (Llama-3.3 70B Versatile), Sarvam AI (`bulbul:v3`), SerpApi Engine, You.com Search & Citations, Nexconn WebSocket SDK.
-- **Deployment & Edge:** Vercel Serverless Functions (`api/index.py`), GitHub Actions.
-
----
-
-## ⚡ Quickstart: Run Locally
-
-### 1. Clone the Repository
+### Step 1: Start the Backend Server
 ```bash
-git clone https://github.com/akashbichukale111/paytmone.git
-cd paytmone
+cd backend
+python -m pip install -r requirements.txt
+python main.py
 ```
-
-### 2. Configure Environment Variables
-Create a `.env` file in the root directory:
-```env
-GROQ_API_KEY=your_groq_api_key
-SARVAM_API_KEY=your_sarvam_api_key
-SERPAPI_API_KEY=your_serpapi_api_key
-YOU_API_KEY=your_you_api_key
-NEXCONN_API_KEY=your_nexconn_api_key
-```
-
-### 3. Install Python Dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Start the FastAPI Backend Server
-```bash
-python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
-```
-
-### 5. Start the Frontend Client Server
-```bash
-python -m http.server 5500
-```
-
-Open your browser and visit:
-👉 **`http://localhost:5500/`** or **`http://localhost:5500/ai-workspace.html`**
+> Server runs at: **`http://localhost:8000`**
 
 ---
 
-## 🧪 Verification & Test Endpoints
-
+### Step 2: Start the Frontend UI
+In a **new terminal**:
 ```bash
-# 1. Health Check
-curl -X GET http://localhost:8000/
+cd frontend
+npm install
+npm run dev
+```
+> Open your browser at: **`http://localhost:5173`**
 
-# 2. Test Conversational Action Query (Recharge with Sarvam Audio)
-curl -X POST http://localhost:8000/api/chat \
-  -H "Content-Type: application/json" \
-  -d '{"query": "मला ₹300 मध्ये Jio 2GB daily data recharge हवा"}'
+---
 
-# 3. Test Sarvam AI Text-to-Speech
-curl -X POST http://localhost:8000/api/tts \
-  -H "Content-Type: application/json" \
-  -d '{"text": "Paytm par do sau ninyanve rupaye prapt hue", "language_code": "hi-IN"}'
+## 🏗️ System Architecture
+
+```
+Paytm_Hackathon_Final/
+├── backend/
+│   ├── main.py                  # FastAPI server with WebSocket & REST endpoints
+│   ├── graph_orchestrator.py    # LangGraph StateGraph engine (Router, Action, Resolve)
+│   ├── database/
+│   │   ├── db_service.py        # SQLite database service & schema
+│   │   └── seed_data.py         # 80+ realistic test scenarios across all verticals
+│   └── test_suite.py            # Automated 11-case end-to-end verification suite
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── PaytmOneHub.jsx       # Landing Hub with Hero Banner & auto-redirect
+│   │   │   ├── ActionModeView.jsx    # Action Mode UI (Movies, Promos, Bills, Recharge)
+│   │   │   ├── ResolveModeView.jsx   # Resolve Mode UI (3-Way Matrix & Dispute Directory)
+│   │   │   └── ArchitectureFlow.jsx  # Dual-Engine Dotted Canvas Flow
+│   │   └── data/
+│   │       └── telecomPlans.js       # Client-side pure query engine fallback
+│   └── dist/                         # Production build assets
+└── README.md
 ```
 
 ---
 
-## 👥 Authors & Team
-- **Akash Bichukale** — Lead Architect & AI Engineer ([@akashbichukale111](https://github.com/akashbichukale111))
-- **Sayyam Karnavat** — Team Member ([@Sayyam-Karnavat](https://github.com/Sayyam-Karnavat))
-- **Hackathon:** Beyond 9TO5 Buildathon / Paytm Hackathon Mumbai
-
----
-
-*Built with ❤️ for Bharat. Engineered for Zero-Trust Financial Operations.*
+## 👥 Authors
+* **Team PaytmOne AI** — Beyond 9TO5 Buildathon / Paytm Hackathon Mumbai

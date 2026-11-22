@@ -195,7 +195,7 @@
           Paytm AI Autonomous Multi-Agent Orchestrator
         </h1>
         <p class="text-sm sm:text-base text-slate-200 mt-2 font-medium leading-relaxed">
-          Full interactive workflow visualization: Intent classification, SerpApi live tariffs, You.com regulatory grounding, Nexconn WebSocket live escalation, and zero-trust UNWIND banking governance.
+          Full interactive workflow visualization: Intent classification, SerpApi live tariffs, You.com regulatory grounding, Nexconn WebSocket live escalation, and zero-trust Zero-Trust banking governance.
         </p>
 
         <!-- KPI Badges -->
@@ -290,13 +290,13 @@
             <path id="wire-base-2-3a" d="M 375 190 C 402 190, 402 77.5, 430 77.5" class="n8n-wire-base" />
             <!-- 3. Node 3A -> Node 4A (SerpApi & Deals) -->
             <path id="wire-base-3a-4a" d="M 580 77.5 L 620 77.5" class="n8n-wire-base" />
-            <!-- 4. Node 4A -> Node 5 (UNWIND Gate) -->
+            <!-- 4. Node 4A -> Node 5 (Zero-Trust Gate) -->
             <path id="wire-base-4a-5" d="M 770 77.5 C 795 77.5, 795 190, 820 190" class="n8n-wire-base" />
             <!-- 5. Node 2 -> Branch 3B (Resolve) -->
             <path id="wire-base-2-3b" d="M 375 190 C 402 190, 402 297.5, 430 297.5" class="n8n-wire-base" />
             <!-- 6. Node 3B -> Node 4B (3-Way Matrix & You.com) -->
             <path id="wire-base-3b-4b" d="M 580 297.5 L 620 297.5" class="n8n-wire-base" />
-            <!-- 7. Node 4B -> Node 5 (UNWIND Gate) -->
+            <!-- 7. Node 4B -> Node 5 (Zero-Trust Gate) -->
             <path id="wire-base-4b-5" d="M 770 297.5 C 795 297.5, 795 190, 820 190" class="n8n-wire-base" />
             <!-- 8. Node 5 -> Node 6 (Terminal Execution) -->
             <path id="wire-base-5-6" d="M 960 190 L 990 190" class="n8n-wire-base" />
@@ -417,19 +417,19 @@
             <div class="node-port node-port-out"></div>
           </div>
 
-          <!-- NODE 5: UNWIND Security Gate -->
-          <div id="node-unwind" onclick="openNodeModal('unwind')" class="workflow-node absolute p-3 flex flex-col justify-between" style="left: 820px; top: 145px; width: 140px; height: 90px; z-index: 10;">
+          <!-- NODE 5: Zero-Trust Security Gate -->
+          <div id="node-zero-trust" onclick="openNodeModal('zero_trust')" class="workflow-node absolute p-3 flex flex-col justify-between" style="left: 820px; top: 145px; width: 140px; height: 90px; z-index: 10;">
             <div class="node-port node-port-in"></div>
             <div class="flex items-center gap-2">
               <span class="w-7 h-7 rounded-lg bg-teal-500/20 border border-teal-400/40 flex items-center justify-center text-sm">🔒</span>
               <div>
-                <div class="text-[11px] font-black text-white">UNWIND Gate</div>
-                <div class="text-[9px] text-teal-300">Zero-Trust Guard</div>
+                <div class="text-[11px] font-black text-white">Zero-Trust Gate</div>
+                <div class="text-[9px] text-teal-300">Human-in-the-Loop</div>
               </div>
             </div>
             <div class="flex items-center justify-between text-[9px] font-mono text-slate-400 border-t border-slate-800 pt-1">
-              <span id="badge-unwind" class="text-slate-400">Idle</span>
-              <span class="text-teal-400">PIN Safe</span>
+              <span id="badge-zero-trust" class="text-slate-400">Idle</span>
+              <span class="text-teal-400">Zero-Trust</span>
             </div>
             <div class="node-port node-port-out"></div>
           </div>
@@ -622,9 +622,9 @@
         sample_in: '{ "issue": "failed_recharge_debited" }',
         sample_out: '{ "matrix_status": "BANK_HOLD_CONFIRMED", "sla": "24_HOURS", "docket": "SHA256_VERIFIED" }'
       },
-      unwind: {
+      zero_trust: {
         icon: "🔒",
-        name: "UNWIND Security Governance Gate",
+        name: "Zero-Trust Security Governance Gate",
         category: "Security & Governance",
         tech: "Paytm Zero-Trust Consent Sandbox • NPCI SDK",
         latency: "< 10ms",
@@ -703,7 +703,7 @@
     }
 
     function resetWorkflowCards() {
-      const allNodes = ['trigger', 'orchestrator', 'action_mode', 'agent_action', 'resolve_mode', 'agent_resolve', 'unwind', 'terminal'];
+      const allNodes = ['trigger', 'orchestrator', 'action_mode', 'agent_action', 'resolve_mode', 'agent_resolve', 'zero_trust', 'terminal'];
       allNodes.forEach(id => {
         const el = document.getElementById(`node-${id}`);
         if (el) el.classList.remove('node-running', 'node-completed', 'node-dimmed', 'active-selected');
@@ -876,11 +876,11 @@
       if (activeWorkflowMode === 'action') {
         await stepRun('action_mode', 'wire-active-2-3a', '✓ 50ms');
         await stepRun('agent_action', 'wire-active-3a-4a', '✓ 820ms');
-        await stepRun('unwind', 'wire-active-4a-5', '✓ 10ms');
+        await stepRun('zero_trust', 'wire-active-4a-5', '✓ 10ms');
       } else if (activeWorkflowMode === 'resolve') {
         await stepRun('resolve_mode', 'wire-active-2-3b', '✓ 50ms');
         await stepRun('agent_resolve', 'wire-active-3b-4b', '✓ 1.0s');
-        await stepRun('unwind', 'wire-active-4b-5', '✓ 10ms');
+        await stepRun('zero_trust', 'wire-active-4b-5', '✓ 10ms');
       } else {
         // Both modes
         await Promise.all([
@@ -891,7 +891,7 @@
           stepRun('agent_action', 'wire-active-3a-4a', '✓ 820ms'),
           stepRun('agent_resolve', 'wire-active-3b-4b', '✓ 1.0s')
         ]);
-        await stepRun('unwind', 'wire-active-4a-5', '✓ 10ms');
+        await stepRun('zero_trust', 'wire-active-4a-5', '✓ 10ms');
       }
 
       // 4. Terminal Settlement Node
@@ -950,7 +950,7 @@
             <div class="text-xs text-slate-700 mt-1">Specialized squad completed execution</div>
           </div>
           <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
-            <span class="text-blue-700 font-bold">⚡ Step 4: UNWIND Gate</span>
+            <span class="text-blue-700 font-bold">⚡ Step 4: Zero-Trust Gate</span>
             <div class="text-xs text-slate-700 mt-1">Zero-trust PIN safeguard verified</div>
           </div>
         `;
